@@ -119,5 +119,5 @@ if "translated" in st.session_state:
 
         <button onclick="speakTranslation()">🔊 Speak Translation</button>
         """,
-        height=80,
+        height=100,
     )
