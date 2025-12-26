@@ -30,4 +30,4 @@ Translate to {language_map[target_language]}.
 
 
 # Expose ASGI app for uvicorn
-app = mcp.asgi_app
+app = mcp.sse_app
