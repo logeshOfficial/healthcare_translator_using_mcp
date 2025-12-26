@@ -15,10 +15,10 @@ st.caption("Real-time multilingual communication for patients and providers")
 col1, col2 = st.columns(2)
 
 with col1:
-    input_lang = st.selectbox("Input Language", ["English", "Tamil", "Hindi"])
+    input_lang = st.selectbox("Input Language", config.language_map.keys())
 
 with col2:
-    output_lang = st.selectbox("Output Language", ["English", "Tamil", "Hindi"])
+    output_lang = st.selectbox("Output Language", config.language_map.keys())
 
 lang_code = config.language_map
 
