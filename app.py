@@ -1,7 +1,9 @@
 import streamlit as st
 import streamlit.components.v1 as components
 from ai_utils import translate_medical_text
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 st.set_page_config(page_title="Healthcare Translator", layout="wide", initial_sidebar_state="collapsed")
 
 st.title("🩺 Healthcare Translation App")
@@ -16,11 +18,7 @@ with col1:
 with col2:
     output_lang = st.selectbox("Output Language", ["English", "Tamil", "Hindi"])
 
-lang_code = {
-    "English": "en-US",
-    "Tamil": "ta-IN",
-    "Hindi": "hi-IN"
-}
+lang_code = os.getenv("language_map")
 
 # ---------------- Voice Input (Browser Speech) ----------------
 st.markdown("### 🎙️ Speak (Browser Speech Recognition)")
