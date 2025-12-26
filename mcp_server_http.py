@@ -8,9 +8,7 @@ import config
 load_dotenv()
 
 app = FastAPI()
-mcp = FastMCP("Healthcare Translator MCP")
-
-app.mount("/mcp", mcp.asgi_app)
+mcp = FastMCP("Healthcare Translator MCP", app=app)
 
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
