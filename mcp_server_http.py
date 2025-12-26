@@ -8,7 +8,7 @@ import config
 load_dotenv()
 
 app = FastAPI()
-mcp = FastMCP("Healthcare Translator MCP", app=app)
+mcp = FastMCP("Healthcare Translator MCP")
 
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
@@ -27,3 +27,7 @@ Translate to {language_map[target_language]}.
         contents=f"{prompt}\n{text}"
     )
     return response.text.strip()
+
+
+# Expose ASGI app for uvicorn
+app = mcp.app
