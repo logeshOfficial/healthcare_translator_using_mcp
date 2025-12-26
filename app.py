@@ -8,6 +8,7 @@ load_dotenv()
 st.set_page_config(page_title="Healthcare Translator", layout="wide", initial_sidebar_state="collapsed")
 
 st.title("🩺 Healthcare Translation App")
+st.title(config.language_map)
 st.caption("Real-time multilingual communication for patients and providers")
 
 # ---------------- Language Selection ----------------
