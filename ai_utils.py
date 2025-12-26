@@ -1,9 +1,11 @@
 
 import requests
 
+MCP_URL = "https://healthcare-mcp.onrender.com/mcp/call"
+
 def translate_medical_text(text, target_language):
     response = requests.post(
-        "http://localhost:8000/mcp/call",
+        MCP_URL,
         json={
             "tool": "translate_medical_text",
             "arguments": {
