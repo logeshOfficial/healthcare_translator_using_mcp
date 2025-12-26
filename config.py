@@ -1,0 +1,22 @@
+language_map = {
+    "English": "English",
+    "Tamil": "Tamil (India)",
+    "Hindi": "Hindi (India)",
+    "Spanish": "Spanish (Spain)",
+    "French": "French (France)",
+    "German": "German (Germany)",
+    "Chinese": "Chinese (Simplified)",
+    "Japanese": "Japanese",
+    "Russian": "Russian",
+    "Portuguese": "Portuguese (Brazil)",
+    "Italian": "Italian (Italy)",
+    "Telugu": "Telugu (India)",
+    "Korean": "Korean",
+    "Arabic": "Arabic",
+    "Dutch": "Dutch (Netherlands)",
+    "Swedish": "Swedish (Sweden)",
+    "Turkish": "Turkish (Turkey)",
+    "malay": "Malay (Malaysia)",
+    "Malayalam": "Malayalam (India)",
+    "Kanada": "Kannada (India)"
+}

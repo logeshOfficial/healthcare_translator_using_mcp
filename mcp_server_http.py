@@ -3,7 +3,7 @@ from fastapi import FastAPI
 import os
 from google import genai
 from dotenv import load_dotenv
-import json
+import config
 
 load_dotenv()
 
@@ -12,7 +12,7 @@ mcp = FastMCP("Healthcare Translator MCP", app=app)
 
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
-language_map = json.loads((os.getenv("LANGUAGE_MAP")))
+language_map = config.language_map
 
 @mcp.tool()
 def translate_medical_text(text: str, target_language: str) -> str:
