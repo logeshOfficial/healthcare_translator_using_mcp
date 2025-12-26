@@ -1,8 +1,7 @@
 import streamlit as st
 import streamlit.components.v1 as components
 from ai_utils import translate_medical_text
-import os
-import json
+import config
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -20,7 +19,7 @@ with col1:
 with col2:
     output_lang = st.selectbox("Output Language", ["English", "Tamil", "Hindi"])
 
-lang_code = json.loads(os.getenv("language_map"))
+lang_code = config.language_map
 
 # ---------------- Voice Input (Browser Speech) ----------------
 st.markdown("### 🎙️ Speak (Browser Speech Recognition)")
