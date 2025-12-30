@@ -83,7 +83,7 @@ original_text = st.text_area(
 )
 
 # ---------------- Translation ----------------
-if st.button("🌍 Translate"):
+if st.button("🌍 Translate and Progress with GEN AI"):
     if not original_text.strip():
         st.warning("Please provide speech input first")
     else:

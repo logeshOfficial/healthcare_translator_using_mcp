@@ -1,7 +1,7 @@
 streamlit
 google-genai
 python-dotenv
-# mcp
+mcp
 fastapi
 uvicorn
-sseclient-py
+# sseclient-py
