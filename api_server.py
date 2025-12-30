@@ -16,12 +16,9 @@ def root():
 @app.post("/translate")
 def translate(req: TranslateRequest):
     try:
-        text = req.text
-        target_language = req.target_language
+        result = translate_medical_text(req.text, req.target_language)
 
-        result = translate_medical_text(text, target_language)
-
-        return {"text": result.text}
-
+        return {"text": result["text"]}
+        
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
