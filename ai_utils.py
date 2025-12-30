@@ -12,8 +12,8 @@ def translate_medical_text(text, target_language):
         },
         timeout=60
     )
-    if response.status_code != 200:
-        raise ValueError(response.text)
+    # if response.status_code != 200:
+    #     raise ValueError(response.text)
 
     data = response.json()
 
