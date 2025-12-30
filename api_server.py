@@ -3,6 +3,16 @@ from mcp_server import translate_medical_text
 
 app = FastAPI(title="Healthcare Translator API")
 
+# Health check endpoint (required by Render)
+@app.get("/")
+def root():
+    return {"status": "API running"}
+
+# Example test endpoint
+@app.get("/ping")
+def ping():
+    return {"message": "pong"}
+
 @app.post("/translate")
 def translate(payload: dict):
     try:
