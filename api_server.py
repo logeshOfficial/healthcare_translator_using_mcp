@@ -8,11 +8,6 @@ app = FastAPI(title="Healthcare Translator API")
 def root():
     return {"status": "API running"}
 
-# Example test endpoint
-@app.get("/ping")
-def ping():
-    return {"message": "pong"}
-
 @app.post("/translate")
 def translate(payload: dict):
     try:
