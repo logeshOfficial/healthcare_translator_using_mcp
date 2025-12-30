@@ -1,6 +1,6 @@
 import requests
 
-API_URL = "https://healthcare-translator-using-mcp.onrender.com/mcp/call" #For deployed MCP server
+API_URL = "https://healthcare-translator-using-mcp.onrender.com" #For deployed MCP server
 # API_URL = "http://localhost:8000/translate" #For local testing
 
 def translate_medical_text(text, target_language):
