@@ -1,6 +1,7 @@
 import requests
 
-API_URL = "http://localhost:8000/translate"
+API_URL =  "https://healthcare-translator-using-mcp.onrender.com/translate"
+# API_URL = "http://localhost:8000/translate"
 
 def translate_medical_text(text, target_language):
     response = requests.post(
