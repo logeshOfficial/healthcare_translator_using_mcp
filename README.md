@@ -1,3 +1,7 @@
+uvicorn mcp_server_http:app --host 0.0.0.0 --port 8000
+
+
+
 ## 🏥 Healthcare Translator using MCP (Model Context Protocol)
 
 A healthcare-focused language translation system built using Model Context Protocol (MCP), designed to safely translate patient–doctor conversations while preserving medical accuracy and context.

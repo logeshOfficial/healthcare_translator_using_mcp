@@ -1,29 +1,57 @@
-from mcp.server.fastmcp import FastMCP
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 import os
 from google import genai
 from dotenv import load_dotenv
-import config
 
 load_dotenv()
 
-app = FastAPI()
-mcp = FastMCP("Healthcare Translator MCP", app=app)
+app = FastAPI(title="Healthcare Translator API")
 
 client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
 
-language_map = config.language_map
+language_map = {
+    "English": "English",
+    "Tamil": "Tamil (India)",
+    "Hindi": "Hindi (India)"
+}
 
-@mcp.tool()
-def translate_medical_text(text: str, target_language: str) -> str:
+# -------- Request Schema --------
+class TranslateRequest(BaseModel):
+    text: str
+    target_language: str
+
+# -------- Core Translation Logic (shared) --------
+def translate_medical_text_core(text: str, target_language: str) -> str:
+    if target_language not in language_map:
+        raise ValueError("Unsupported language")
+
     prompt = f"""
 You are a professional medical interpreter.
-Correct speech errors, preserve meaning.
-Translate to {language_map[target_language]}.
+Correct minor speech recognition errors.
+Preserve medical meaning.
+Translate into {language_map[target_language]}.
+Keep it simple and patient-friendly.
+
+Transcript:
+{text}
 """
 
     response = client.models.generate_content(
         model="gemini-2.5-flash-lite",
-        contents=f"{prompt}\n{text}"
+        contents=prompt
     )
+
     return response.text.strip()
+
+# -------- REST Endpoint --------
+@app.post("/translate")
+def translate(req: TranslateRequest):
+    try:
+        result = translate_medical_text_core(
+            req.text,
+            req.target_language
+        )
+        return {"translated_text": result}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

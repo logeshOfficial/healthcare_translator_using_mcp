@@ -4,3 +4,4 @@ python-dotenv
 mcp
 fastapi
 uvicorn
+sseclient-py
